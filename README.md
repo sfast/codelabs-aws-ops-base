@@ -26,6 +26,8 @@ sh ./initialize.sh
 
 ```shell
 
+### This is part of the content of initialize.sh script 
+
 SCRIPT_ROOT=$(pwd)
 OPS_BASE_USER="dqops"
 
@@ -51,6 +53,10 @@ sh $SCRIPT_ROOT/scripts/root/cleanup.sh
 
 
 ```
+
+## File structure
+- under root folder we have scrypts that we run under root user
+- under "dqops" folder we have scripts which we run after creating "dqops" user - like install go, podman, ansible, docker etc ...
 
 
 ## Busybox-static is installed on our AWS ops-base image

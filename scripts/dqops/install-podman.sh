@@ -48,7 +48,13 @@ apt-get install -y \
   conmon \
   uidmap \
   slirp4netns \
-  dbus-user-session
+  newuidmap \
+
+### Add configuration 
+
+mkdir -p /etc/containers
+curl -L -o /etc/containers/registries.conf https://src.fedoraproject.org/rpms/containers-common/raw/main/f/registries.conf
+curl -L -o /etc/containers/policy.json https://src.fedoraproject.org/rpms/containers-common/raw/main/f/default-policy.json
 
 
 # The command sudo sysctl kernel.unprivileged_userns_clone=1 is used to enable unprivileged user namespaces in the Linux kernel. 
@@ -56,9 +62,17 @@ apt-get install -y \
 # enable 
 sysctl kernel.unprivileged_userns_clone=1
 # enable permanently
-sh -c 'echo 'kernel.unprivileged_userns_clone=1' > /etc/sysctl.d/userns.conf'
+sh -c 'echo 'kernel.unprivileged_userns_clone=1' >> /etc/sysctl.d/userns.conf'
+sh -c 'echo 'kernel.unprivileged_userns_clone=1' >> /etc/sysctl.conf'
 
-make BUILDTAGS="exclude_graphdriver_devicemapper selinux seccomp" PREFIX=/usr
+sh -c 'sysctl --system'
+
+sudo apt-get install -y dbus-user-session
+sudo apt-get install -y fuse-overlayfs
+
+
+
+make BUILDTAGS="exclude_graphdriver_devicemapper selinux seccomp systemd" PREFIX=/usr
 make install PREFIX=/usr
 
 

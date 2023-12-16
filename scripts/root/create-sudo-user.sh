@@ -117,4 +117,10 @@ else
   # Set the correct permissions for the sudoers file
   chmod 0440 "/etc/sudoers.d/$var_username"
   chown -R $var_username /home/$var_username
+
+  # Check if enabled loginctl show-user $USER -p Linger
+  # linger is a way to ensure systemd services are runnig after user log out ....
+  loginctl enable-linger $(id -u $USER)
+
 fi
+
