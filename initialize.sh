@@ -28,7 +28,7 @@ source ./env.sh
 sh $SCRIPT_ROOT/scripts/root/update.sh
 sh $SCRIPT_ROOT/scripts/root/install-busybox.sh
 sh $SCRIPT_ROOT/scripts/root/install-bash.sh
-sh $SCRIPT_ROOT/scripts/root/create-sudo-user.sh -u $OPS_BASE_USER
+sh $SCRIPT_ROOT/scripts/root/create-sudo-user.sh -u "$OPS_BASE_USER"
 
 # Run as admin user 
 su - "$OPS_BASE_USER" <<EOF
