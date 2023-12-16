@@ -18,18 +18,26 @@ while getopts "u:" opt; do
   esac
 done
 
+
+SCRIPT_ROOT=$(pwd)
+$OPS_BASE_USER="dqops"
+
 # Call update.sh to update 
 source ./env.sh
 
-sh ./root/update.sh
-sh ./root/install-busybox.sh
-sh ./root/install-bash.sh
-sh ./root/create-sudo-user.sh -u dooqod
+sh $SCRIPT_ROOT/scripts/root/update.sh
+sh $SCRIPT_ROOT/scripts/root/install-busybox.sh
+sh $SCRIPT_ROOT/scripts/root/install-bash.sh
+sh $SCRIPT_ROOT/scripts/root/create-sudo-user.sh -u $OPS_BASE_USER
 
 # Run as admin user 
-sudo -c "sh ./admin/install-ansible.sh"
-sudo -c "sh ./admin/install-go.sh"
-sudo -c "sh ./admin/install-podman.sh"
+su - "$OPS_BASE_USER" <<EOF
+
+sudo sh $SCRIPT_ROOT/scripts/admin/install-ansible.sh
+sudo sh $SCRIPT_ROOT/scripts/admin/install-go.sh
+sudo sh $SCRIPT_ROOT/scripts/admin/install-podman.sh
+
+EOF
 
 # Run as root user 
-sh ./root/cleanup.sh
+sh $SCRIPT_ROOT/scripts/root/cleanup.sh

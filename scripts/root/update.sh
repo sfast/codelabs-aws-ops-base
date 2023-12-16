@@ -12,4 +12,6 @@ echo "dooqod:: Wait for lock to release and update all packag lists"
 
 apt-get -o DPkg::Lock::Timeout=-1 update -y
 
+apt-get -o DPkg::Lock::Timeout=-1 upgrade -y
+
 echo "dooqod:: Lock released"

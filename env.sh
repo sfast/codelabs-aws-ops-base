@@ -1,3 +1,3 @@
 #!/bin/sh
 
-export OPS_USER_HOST=""
+export OPS_BASE_USER="dqops"

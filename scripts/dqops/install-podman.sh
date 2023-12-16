@@ -17,6 +17,8 @@
 
 git clone -b v4.8 https://github.com/containers/podman.git
 
+cd ./podman
+
 # We need also go to be installed version 1.20
 
 apt-get install -y \
@@ -58,6 +60,12 @@ sh -c 'echo 'kernel.unprivileged_userns_clone=1' > /etc/sysctl.d/userns.conf'
 
 make BUILDTAGS="exclude_graphdriver_devicemapper selinux seccomp" PREFIX=/usr
 make install PREFIX=/usr
+
+
+# Clean the podman repo
+
+cd ..
+rm -rf podman
 
 echo "Run - podman info"
 
