@@ -20,7 +20,7 @@ done
 
 
 SCRIPT_ROOT=$(pwd)
-$OPS_BASE_USER="dqops"
+OPS_BASE_USER="dqops"
 
 # Call update.sh to update 
 source ./env.sh
