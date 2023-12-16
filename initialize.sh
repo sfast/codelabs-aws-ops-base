@@ -33,9 +33,9 @@ sh $SCRIPT_ROOT/scripts/root/create-sudo-user.sh -u "$OPS_BASE_USER"
 # Run as admin user 
 su - "$OPS_BASE_USER" <<EOF
 
-sudo sh $SCRIPT_ROOT/scripts/admin/install-ansible.sh
-sudo sh $SCRIPT_ROOT/scripts/admin/install-go.sh
-sudo sh $SCRIPT_ROOT/scripts/admin/install-podman.sh
+sudo sh $SCRIPT_ROOT/scripts/dqops/install-ansible.sh
+sudo sh $SCRIPT_ROOT/scripts/dqops/install-go.sh
+sudo sh $SCRIPT_ROOT/scripts/dqops/install-podman.sh
 
 EOF
 
