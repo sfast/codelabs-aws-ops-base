@@ -12,6 +12,8 @@ echo "dooqod:: Wait for lock to release and update all packag lists"
 
 apt-get -o DPkg::Lock::Timeout=-1 update -y
 
-apt-get -o DPkg::Lock::Timeout=-1 upgrade -y
+# apt-get -o DPkg::Lock::Timeout=-1 upgrade -y
+
+### This is not a mistake, we need to update otherwise cant find make or gcc, or other package candidates ...
 
 echo "dooqod:: Lock released"

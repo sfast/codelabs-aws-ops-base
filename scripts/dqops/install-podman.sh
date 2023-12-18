@@ -21,7 +21,10 @@ cd ./podman
 
 # We need also go to be installed version 1.20
 
+apt-get -o DPkg::Lock::Timeout=-1 update -y
+
 apt-get install -y \
+  gcc \
   make \
   gcc \
   git \
@@ -79,7 +82,7 @@ make install PREFIX=/usr
 # Clean the podman repo
 
 cd ..
-rm -rf podman
+# rm -rf podman
 
 echo "Run - podman info"
 
