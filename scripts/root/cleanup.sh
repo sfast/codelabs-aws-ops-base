@@ -11,5 +11,4 @@ echo "**** clean up ****"
 apt-get clean
 
 rm -rf /tmp/* 
-rm -rf /var/lib/apt/lists/* 
 rm -rf /var/tmp/*

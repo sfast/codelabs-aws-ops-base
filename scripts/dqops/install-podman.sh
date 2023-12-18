@@ -24,14 +24,12 @@ cd ./podman
 apt-get -o DPkg::Lock::Timeout=-1 update -y
 
 apt-get install -y \
-  gcc \
   make \
   gcc \
   git \
   btrfs-progs \
   go-md2man \
   crun \
-  git \
   iptables \
   libassuan-dev \
   libbtrfs-dev \
@@ -50,8 +48,7 @@ apt-get install -y \
   pkg-config \
   conmon \
   uidmap \
-  slirp4netns \
-  newuidmap \
+  slirp4netns
 
 ### Add configuration 
 
@@ -83,6 +80,8 @@ make install PREFIX=/usr
 
 cd ..
 # rm -rf podman
+
+loginctl enable-linger $(id -u $USER)
 
 echo "Run - podman info"
 
