@@ -18,12 +18,16 @@ while getopts "u:" opt; do
   esac
 done
 
+# Call update.sh to update 
+source ./env.sh
+
+## Install git, clone and run the rest, this can be an S# script actually...
+# apt-get install -y git
+# git clone -b develop https://github.com/sfast/codelabs-aws-ops-base
+# cd ./codelabs-aws-ops-base
 
 SCRIPT_ROOT=$(pwd)
 OPS_BASE_USER="dqops"
-
-# Call update.sh to update 
-source ./env.sh
 
 sh $SCRIPT_ROOT/scripts/root/update.sh
 sh $SCRIPT_ROOT/scripts/root/install-busybox.sh
