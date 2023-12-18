@@ -81,7 +81,7 @@ make install PREFIX=/usr
 cd ..
 # rm -rf podman
 
-loginctl enable-linger $(id -u $USER)
+loginctl enable-linger $USER
 
 echo "Run - podman info"
 

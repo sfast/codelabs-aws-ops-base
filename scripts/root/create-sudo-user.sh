@@ -120,7 +120,7 @@ else
 
   # Check if enabled loginctl show-user $USER -p Linger
   # linger is a way to ensure systemd services are runnig after user log out ....
-  loginctl enable-linger $(id -u $USER)
+  loginctl enable-linger $USER
 
 fi
 
