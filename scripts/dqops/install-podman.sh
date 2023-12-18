@@ -67,8 +67,8 @@ sh -c 'echo 'kernel.unprivileged_userns_clone=1' >> /etc/sysctl.conf'
 
 sh -c 'sysctl --system'
 
-sudo apt-get install -y dbus-user-session
-sudo apt-get install -y fuse-overlayfs
+apt-get install -y dbus-user-session
+apt-get install -y fuse-overlayfs
 
 
 
