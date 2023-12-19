@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-dind-pod
+spec:
+  containers:
+  - name: ubuntu-dind-container
+    image: cruizba/ubuntu-dind:latest
+    securityContext:
+      privileged: true
+    command: ["sh", "-c", "supervisord && tail -f /dev/null" ]
