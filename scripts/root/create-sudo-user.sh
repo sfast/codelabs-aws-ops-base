@@ -120,7 +120,8 @@ else
 
   # Check if enabled loginctl show-user $USER -p Linger
   # linger is a way to ensure systemd services are runnig after user log out ....
-  loginctl enable-linger $USER
+  # TODO::AVAR - we are harcoding dqops here ...
+  loginctl enable-linger dqops
 
 fi
 

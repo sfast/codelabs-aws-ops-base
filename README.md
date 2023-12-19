@@ -14,12 +14,18 @@ What it does ? Just installs some aplets and creates a user.
 - go
 - ansible
 - podman or docker
+- k3s (light version of k8s)
 
 ## How to run ?
 
 ```shell
 
-sh ./initialize.sh
+sudo sh ./initialize.sh
+
+# NOTE: check if linger is enabled for user 'dqops' (we enable it when creating dqops user)
+# should containe a file with username if enabled
+ls /var/lib/systemd/linger/
+
 
 ```
 
@@ -45,6 +51,7 @@ su - "$OPS_BASE_USER" <<EOF
 sudo sh $SCRIPT_ROOT/scripts/dqops/install-ansible.sh
 sudo sh $SCRIPT_ROOT/scripts/dqops/install-go.sh
 sudo sh $SCRIPT_ROOT/scripts/dqops/install-podman.sh
+sudo sh $SCRIPT_ROOT/scripts/dqops/install-k3.sh
 
 EOF
 

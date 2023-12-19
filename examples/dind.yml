@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ubuntu-dind-pod-777
+  name: ubuntu-dind-pod
 spec:
   containers:
   - name: ubuntu-dind-container

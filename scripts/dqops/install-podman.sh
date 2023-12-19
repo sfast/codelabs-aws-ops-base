@@ -79,9 +79,7 @@ make install PREFIX=/usr
 # Clean the podman repo
 
 cd ..
-# rm -rf podman
-
-loginctl enable-linger $USER
+rm -rf podman
 
 echo "Run - podman info"
 
